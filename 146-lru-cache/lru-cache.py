@@ -33,7 +33,7 @@ class LRUCache:
         #print('add '+str(node.key))
     def get(self, key: int) -> int:
         if key in self.cache:
-            print('get '+str(key))
+            #print('get '+str(key))
             node = self.cache[key]
             #remove node from queue
             self.remove(node)
@@ -61,7 +61,7 @@ class LRUCache:
         if len(self.cache)>self.capacity:
         # remove the last item
             node = self.tail.prev
-            print(self.tail.prev.key)
+            #print(self.tail.prev.key)
             self.remove(node)
             del self.cache[node.key]
 
