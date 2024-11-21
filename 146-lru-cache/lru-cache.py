@@ -16,7 +16,7 @@ class LRUCache:
 
     def remove(self,node):
         pre,nxt = node.prev,node.next
-        print('remove '+str(node.key))
+        #print('remove '+str(node.key))
         pre.next = nxt
         nxt.prev = pre
     def add(self,node):
@@ -28,9 +28,9 @@ class LRUCache:
         #prev, nxt = self.tail.prev, self.tail
         #prev.next = nxt.prev = node
         #node.next, node.prev = nxt, prev
-        print('heads next'+str(self.head.next.key))
-        print('tail prev'+str(self.tail.prev.key))
-        print('add '+str(node.key))
+        #print('heads next'+str(self.head.next.key))
+        #print('tail prev'+str(self.tail.prev.key))
+        #print('add '+str(node.key))
     def get(self, key: int) -> int:
         if key in self.cache:
             print('get '+str(key))
@@ -52,7 +52,7 @@ class LRUCache:
             self.remove(self.cache[key])
         #else:
         #    self.size+=1
-        print('put '+str(key))
+        #print('put '+str(key))
         #update node
         self.cache[key] = Node(key,value)
         #add to the beginning
