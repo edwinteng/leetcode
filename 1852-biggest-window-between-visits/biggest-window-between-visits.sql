@@ -9,4 +9,3 @@ FROM UserVisits
 SELECT user_id, max(date_diff) as biggest_window
 FROM t 
 group by user_id
-HAVING max(date_diff) is not null
