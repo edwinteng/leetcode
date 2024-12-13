@@ -1,12 +1,15 @@
-class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
-        
-        max_s = nums[0]
-        s = nums[0]
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        sub_sum = nums[0]
+        total = nums[0]
         for i in range(1,len(nums)):
-            if s <0:
-                s = 0
-            s+=nums[i]
-            max_s=max(max_s,s)
-        return max_s
             
+            if total < 0:
+                total = 0
+            total+=nums[i]
+            sub_sum=max(sub_sum,total)
+        return sub_sum
