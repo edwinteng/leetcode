@@ -7,10 +7,8 @@ class Solution:
             ans.append(path)
                 #return
             for i in range(index,len(nums)):
-                if i!=index and nums[i-1]==nums[i]:
-                    continue
-                #dfs(i+1,path)
-                dfs(i+1,path+[nums[i]])
+                if i==index or (i-1>=0 and nums[i-1]!=nums[i]):
+                    dfs(i+1,path+[nums[i]])
 
         dfs(0,[])
         return ans
