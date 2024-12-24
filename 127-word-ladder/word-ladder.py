@@ -1,7 +1,5 @@
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        #if endWord in wordList:
-        #    return 0
         pattern = collections.defaultdict(list)
         wordList.append(beginWord)
         for word in wordList:
