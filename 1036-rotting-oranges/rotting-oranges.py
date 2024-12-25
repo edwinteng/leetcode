@@ -19,8 +19,7 @@ class Solution(object):
             for _ in range(len(q)):
                 i,j = q.popleft()
                 for d_i,d_j in [(0,1),(1,0),(0,-1),(-1,0)]:
-                    cur_i,cur_j = i+d_i,j+d_j
-                    
+                    cur_i,cur_j = i+d_i,j+d_j       
                     if 0<=cur_i<num_row and 0<=cur_j<num_col and grid[cur_i][cur_j]==1:
   
                         grid[cur_i][cur_j]=2
