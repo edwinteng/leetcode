@@ -9,21 +9,15 @@ from collections import deque
 from typing import Optional
 class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        clone = {}
-        def bfs(node):
+        visited = {}
+        def dfs(cur_node):
+            if cur_node in visited:
+                return visited[cur_node]
+            clone_node = Node(cur_node.val)
+            visited[cur_node] = clone_node
+            clone_node.neighbors = []
+            for nei in cur_node.neighbors:
+                clone_node.neighbors.append(dfs(nei))
+            return clone_node
+        return dfs(node) if node else None
             
-            
-            #clone_node.neighbors = vertex.neighbors
-            
-            clone[node.val] = Node(node.val,[])
-            queue = deque([node])
-            while len(queue):
-                cur_node = queue.popleft()
-                for nei in cur_node.neighbors:
-                    if nei.val not in clone:
-                        clone[nei.val] = Node(nei.val,[])
-                        queue.append(nei)
-                    
-                    clone[cur_node.val].neighbors.append(clone[nei.val])
-            return clone[node.val]
-        return bfs(node) if node  else None 
