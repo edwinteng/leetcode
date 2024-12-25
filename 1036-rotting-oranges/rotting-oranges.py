@@ -26,6 +26,5 @@ class Solution(object):
                         grid[cur_i][cur_j]=2
                         q.append((cur_i,cur_j))
                         fresh-=1
-            print(q)
             mins+=1
         return mins if fresh==0 else -1
