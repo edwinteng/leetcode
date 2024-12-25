@@ -22,7 +22,7 @@ class Solution(object):
                     cur_i,cur_j = i+d_i,j+d_j
                     
                     if 0<=cur_i<num_row and 0<=cur_j<num_col and grid[cur_i][cur_j]==1:
-                        print(str(mins)+':'+str(cur_i)+':'+str(cur_j))
+  
                         grid[cur_i][cur_j]=2
                         q.append((cur_i,cur_j))
                         fresh-=1
