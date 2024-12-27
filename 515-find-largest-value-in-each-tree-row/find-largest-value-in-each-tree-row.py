@@ -15,8 +15,6 @@ class Solution(object):
         q = deque([root])
         ans = [root.val]
         while q:
-
-            
             level = []
             for _ in range(len(q)):
                 node = q.popleft()
@@ -26,8 +24,6 @@ class Solution(object):
                 if node.right:
                     level.append(node.right.val)
                     q.append(node.right)
-            #if len(level)>0:
-            #print(level)
             if level:
                 ans.append(max(level))
         return ans
