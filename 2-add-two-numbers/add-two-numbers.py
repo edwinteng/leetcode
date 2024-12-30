@@ -8,18 +8,18 @@ class Solution:
         dummy = ListNode()
         cur = dummy
         carry = 0
-        while l1 or l2 or carry:
-            sum_tmp = carry
-            if l1:
-                sum_tmp+=l1.val
-                l1=l1.next
-            if l2:
-                sum_tmp+=l2.val
-                l2=l2.next
-            carry,cur_sum = divmod(sum_tmp,10)
-            cur.next = ListNode(cur_sum)
-            cur = cur.next
-
+        ptr1,ptr2 = l1,l2
+        while ptr1 or ptr2 or carry:
+            total = carry
+            if ptr1:
+                total+=ptr1.val
+                ptr1=ptr1.next
+            if ptr2:
+                total+=ptr2.val
+                ptr2=ptr2.next
+            carry,remainder=divmod(total,10)
+            cur.next = ListNode(remainder)
+            cur = cur.next     
         return dummy.next
 
         
