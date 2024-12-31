@@ -6,11 +6,11 @@ class Solution:
             if index == len(nums):
                 ans.append(path)
                 return
+
             for i in range(len(nums)):
-                if not mask[i]:
+                if mask[i] == False:
                     mask[i] = True
                     dfs(index+1,path+[nums[i]])
                     mask[i] = False
         dfs(0,[])
         return ans
-
