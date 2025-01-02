@@ -20,12 +20,17 @@ class RandomizedSet:
         if val not in self.hash:
             return False
         else:
+            #Update Hash table
+            # swap hash table value
             index = self.hash[val]
-            val_last = self.lst[-1]
-            self.hash[val_last] = index
-            self.lst[index],self.lst[-1]=self.lst[-1],self.lst[index]
-
+            val_swap = self.lst[-1]
+            self.hash[val_swap]= index
+            # delete the element in hash table
             del self.hash[val]
+            # Update list
+            # Swap the last element and the element in the list
+            # pop the last element
+            self.lst[index],self.lst[-1]=self.lst[-1],self.lst[index]
             self.lst.pop()
             return True
 
