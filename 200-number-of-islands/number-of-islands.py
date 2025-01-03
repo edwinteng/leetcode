@@ -9,6 +9,7 @@ class Solution:
             visited.add((i,j))
             while q:
                 cur_i,cur_j = q.popleft()
+                #visited.add((cur_i,cur_j))
                 for d_i,d_j in [(0,1),(1,0),(0,-1),(-1,0)]:
                     next_i,next_j = cur_i+d_i,cur_j+d_j
                     if 0<=next_i < num_row and 0<=next_j<num_col and grid[next_i][next_j]=='1' and (next_i,next_j) not in visited:
