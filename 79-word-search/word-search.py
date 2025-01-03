@@ -19,6 +19,6 @@ class Solution:
             return False
         for i in range(num_row):
             for j in range(num_col):
-                if board[i][j] == word[0] and dfs(i,j,0):
+                if dfs(i,j,0):
                     return True
         return False
