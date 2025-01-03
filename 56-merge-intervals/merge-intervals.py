@@ -1,22 +1,18 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
-        # answer,  list()
-        # index,  integer,  0< index < len(intervals)
-        answer = list()
-        index = 0
-        # Steps
-        #  sort intervals
+        # sort intervals
         intervals.sort()
-        #  loop through intervals with index
-        for index in range(len(intervals)):
-        #  Compare element with answer 
-            if len(answer) > 0 and answer[-1][1] >= intervals[index][0]:
-                answer[-1] = [answer[-1][0],max(intervals[index][1],answer[-1][1])]
-        #  Check if element has overlap with answer
-        #  If yes,  merge  
+        #assign answer to the 1st interval
+        ans = []
+        ans.append(intervals[0])
+        #loop
+        for i in range(1,len(intervals)):
+            prev_start,prev_end= ans[-1][0],ans[-1][1]
+            cur_start,cur_end = intervals[i][0],intervals[i][1]
+            if cur_start <= prev_end:
+                ans[-1][1] = max(prev_end,cur_end)
             else:
-                answer.append(intervals[index])
-        #  If not, add the element to the end
-        #  return  answer
-        return answer
+                ans.append(intervals[i])
+        return ans
+
         
