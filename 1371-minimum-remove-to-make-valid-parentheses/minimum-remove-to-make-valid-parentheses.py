@@ -1,33 +1,27 @@
-class Solution(object):
-    def minRemoveToMakeValid(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        count_left=0
-        count_right =0
-        ans = []
-        for c in s:
-            if c not in '()':
-                ans.append(c)
-                continue
-            if c =='(':
-                count_left+=1
-                ans.append(c)
-            if c ==')':
-                if count_left >0:
-                    count_left-=1
-                    ans.append(c)
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
+        num_left = 0
         filtered = []
-        for c in ans[::-1]:
-            if c == ')':
-                count_right+=1
-                filtered.append(c)
-            elif c== '(':
-                if count_right>0:
-                    count_right-=1
-                    filtered.append(c)
+        for i in range(len(s)):
+            if s[i] not in '()':
+                filtered.append(s[i])
+            elif s[i] == '(':
+                filtered.append(s[i])
+                num_left+=1
             else:
-                filtered.append(c)
-        return ''.join(filtered[::-1])
-
+                if num_left:
+                    filtered.append(s[i])
+                    num_left-=1
+        num_right = 0
+        reverse_ans = []
+        for i in range(len(filtered)-1,-1,-1):
+            if filtered[i] not in '()':
+                reverse_ans.append(filtered[i])
+            elif filtered[i]==')':
+                reverse_ans.append(filtered[i])
+                num_right+=1
+            else:
+                if num_right:
+                    reverse_ans.append(filtered[i])
+                    num_right-=1
+        return ''.join(reverse_ans)[::-1]
