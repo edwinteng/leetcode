@@ -6,8 +6,8 @@ class Solution:
             if val < 3:
                 ans+=val
             else:
-                tmp = val
-                while tmp >2:
-                    tmp-=2
-                ans+=tmp
+                if val%2:
+                    ans+=1
+                else:
+                    ans+=2
         return ans
