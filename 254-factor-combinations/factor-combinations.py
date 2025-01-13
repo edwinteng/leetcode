@@ -1,21 +1,11 @@
-class Solution(object):
-    def getFactors(self, n):
-        """
-        :type n: int
-        :rtype: List[List[int]]
-        """
+class Solution:
+    def getFactors(self, n: int) -> List[List[int]]:
         ans = []
-        def dfs(val,start,path):
+        def dfs(num,prev,path):
             if len(path)>0:
-                ans.append(path+[val])
-                
-            
-            for n in range(start,int(sqrt(val))+1):
-                if val%n == 0:
-                    dfs(val//n,n,path+[n])
+                ans.append(path+[num])
+            for i in range(prev,int(sqrt(num))+1):
+                if num%i == 0:
+                    dfs(num/i,i,path+[i])
         dfs(n,2,[])
-        return ans
-
-
-
-   
+        return ans if n>1 else []
