@@ -11,17 +11,18 @@ class Solution:
         if root is None:
             return []
         q = deque([root])
-        ans= []
+        ans = []
+        #print(q)
         while q:
-            n = len(q)
-            level_q = []
-            for _ in range(n):
+            level = []
+            for i in range(len(q)):
                 node = q.popleft()
-                level_q.append(node)
+                level.append(node.val)
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            ans.append(level_q[-1].val)
+            ans.append(level[-1])
         return ans
+
         
