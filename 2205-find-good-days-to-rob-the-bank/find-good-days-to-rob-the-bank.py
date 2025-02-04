@@ -1,5 +1,7 @@
 class Solution:
     def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
+        if len(security) <time*2:
+            return []
         ans = []
         increase = [i for i in range(len(security))]
         decrease = [i for i in range(len(security))]
