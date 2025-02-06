@@ -5,7 +5,7 @@ class Solution:
         min_size = len(nums)+1
         for right in range(len(nums)):
             total+=nums[right]
-            while left<=right and  total>=target:
+            while  total>=target:
                 min_size = min(min_size,right-left+1)
                 total-=nums[left]
                 left+=1
