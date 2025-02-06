@@ -8,6 +8,6 @@ class Solution:
                 cum_sum+=num
             else:
                 cum_sum = num
-            max_s = max(max_s,num,cum_sum)
+            max_s = max(max_s,cum_sum)
         return max_s
             
