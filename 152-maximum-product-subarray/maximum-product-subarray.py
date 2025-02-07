@@ -1,16 +1,15 @@
-class Solution(object):
-    def maxProduct(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        ans = nums[0]
-        max_p = nums[0]
-        min_p = nums[0]
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        
+        ans = 0
+        max_p=nums[0]
+        cum_max=nums[0]
+        cum_min = nums[0]
         for num in nums[1:]:
-            temp_max = max_p
-            temp_min = min_p
-            max_p = max(num,temp_max*num,temp_min*num)
-            min_p = min(num,temp_max*num,temp_min*num)
-            ans = max(ans,max_p)
-        return ans
+            temp_max,temp_min = cum_max,cum_min
+            cum_max=max(num,temp_max*num,temp_min*num)
+            cum_min=min(num,temp_min*num,temp_max*num)
+            max_p = max(max_p,cum_max)
+        return max_p
+
+            
