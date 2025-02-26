@@ -4,10 +4,7 @@ class Solution:
         max_s = float('-Inf')
         cum_sum = 0
         for num in nums:
-            if cum_sum >0:
-                cum_sum+=num
-            else:
-                cum_sum = num
+            cum_sum = max(cum_sum+num,num)
             max_s = max(max_s,cum_sum)
         return max_s
             
